@@ -202,6 +202,7 @@ void threeSort(char& a, char& b, char& c)
   }
 }
 
+
 void threeSort(std::string& a, std::string& b, std::string& c)
 {
   if (a > b)

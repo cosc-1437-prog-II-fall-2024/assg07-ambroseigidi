@@ -21,3 +21,4 @@ void threeSort(char& a, char& b, char& c);
 // given to you to as example solutions from previous assignment
 void swap(int& a, int& b);
 void threeSort(int& a, int& b, int& c);
+void threeSort(std::string& a, std::string& b, std::string& c);
