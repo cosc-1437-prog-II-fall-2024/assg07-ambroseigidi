@@ -15,7 +15,6 @@
 #include <string>
 using namespace std;
 
-
 /** @brief return the next Fibonacci number
  *
  * The Fibonacci sequence is defined usually as
@@ -31,7 +30,7 @@ using namespace std;
  * e.g. the next Fibonacci number in the sequence is defined as the
  * sum of the previous two numbers in the sequence, with 0 and 1 being
  * the 0th and 1st term by definition of the sequence.
- * 
+ *
  * This funciton, when called, returns the next number in the Fibonacci
  * sequence.  We remember our previous two numbers generated (using
  * static variables).  A default parameter can be overridden to reset
@@ -47,8 +46,32 @@ using namespace std;
  *    the reset flag parameter to reset and begin generating from the start
  *    of the sequence again.
  */
-// your implementation of task 1 nextFibonacciNumber() goes here
 
+int nextFibonacciNumber(bool resetSequence)
+{
+  // Declare static variables to hold the last two Fibonacci numbers
+  static int F_1 = 0; // F(n-1)
+  static int F_2 = 1; // F(n-2)
+
+  if (resetSequence)
+  {
+    // Reset the sequence
+    F_1 = 0;
+    F_2 = 1;
+    return 1; // Return the first Fibonacci number
+  }
+  else
+  {
+    // Calculate the next Fibonacci number
+    int nextFibonacci = F_1 + F_2;
+
+    // Shift the values for the next call
+    F_1 = F_2;
+    F_2 = nextFibonacci;
+
+    return nextFibonacci;
+  }
+}
 
 /** @brief swap two given integer values in memory
  *
@@ -75,6 +98,30 @@ void swap(int& a, int& b)
   b = temp;
 }
 
+/** @brief swap two given character values in memory
+ *
+ * Given two character values, swap their locations
+ * in memory.  We can do this because the parameters
+ * are passed by reference, so when we modify them
+ * in this function, we are modifying the original
+ * values passed to us.
+ *
+ * @param a A reference to a value in memory to be swapped with
+ *    some other value.
+ * @param b A second reference to a value in memory to be swapped.
+ *
+ * @returns void This is a void function.  Our work is returned
+ *    implicitly by swapping the values in the referenced memory
+ *    locations a and b.
+ */
+void swap(char& a, char& b)
+{
+  // need to save a value temporarily so we can move things
+  // around successfully.
+  char temp = a;
+  a = b;
+  b = temp;
+}
 
 /** @brief sort three values in ascending order
  *
@@ -114,4 +161,54 @@ void threeSort(int& a, int& b, int& c)
   {
     swap(a, b);
   }
+}
+/** @brief sort three values in ascending order
+ *
+ * Given three character values, passed in by reference,
+ * cause the three values to be sorted in the
+ * variables with the smallest value in the first
+ * parameter a, the largest in the last c, and the
+ * in between one in b.
+ *
+ * @param a A reference to a value in memory to compared and sorted.
+ * @param b A reference to a value in memory to compared and sorted.
+ * @param c A reference to a value in memory to compared and sorted.
+ *
+ * @returns void This is a void function.  Our work is returned
+ *    implicitly by comparing and sorting the 3 values into
+ *    ascending order, smallest in a, largest in c and in between
+ *    value in b.
+ */
+void threeSort(char& a, char& b, char& c)
+{
+  // swap a, b if out of order, guarantees larger of the two is now in b
+  if (a > b)
+  {
+    swap(a, b);
+  }
+
+  // swap b, c if out of order, guarantees that largest values has been
+  // now bubbled to c
+  if (b > c)
+  {
+    swap(b, c);
+  }
+
+  // it is still possible after this "bubble pass" that a and b are out of
+  // order, so check and swap them if needed
+  if (a > b)
+  {
+    swap(a, b);
+  }
+}
+
+
+void threeSort(std::string& a, std::string& b, std::string& c)
+{
+  if (a > b)
+    swap(a, b);
+  if (a > c)
+    swap(a, c);
+  if (b > c)
+    swap(b, c);
 }

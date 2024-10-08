@@ -19,9 +19,9 @@ using namespace std;
 
 // change these to #define when ready to begin working on each task,
 // once defined they will enable the tests declared below for each task
-#undef task1
-#undef task2
-#undef task3
+#define task1
+#define task2
+#define task3
 #define predefined
 
 /** nextFibonacciNumber() test cases
@@ -71,7 +71,6 @@ TEST_CASE("Task 1 <nextFibonacciNumber()> tests", "[task1]")
 }
 #endif
 
-
 /** swap() char test cases
  * Create an overloaded function called swap() to pass
  * the following tests as described in the assignment description.
@@ -120,7 +119,6 @@ TEST_CASE("Task 2 <swap()> of char parameters> tests", "[task2]")
 }
 #endif
 
-
 /** threeSort() of char test cases
  * Create a function called threeSort() to pass
  * the following tests as described in the assignment description.
@@ -131,47 +129,57 @@ TEST_CASE("Task2 <threeSort()> of char parameters  tests", "[task2]")
   char a, b, c;
 
   // already sorted
-  a = 'x'; b = 'y'; c = 'z';
-  threeSort(a, b, c);
-  CHECK(a == 'x');
-  CHECK(b == 'y');
-  CHECK(c == 'z');
-  
-  // in reverse order
-  a = 'z'; b = 'y'; c = 'x';
+  a = 'x';
+  b = 'y';
+  c = 'z';
   threeSort(a, b, c);
   CHECK(a == 'x');
   CHECK(b == 'y');
   CHECK(c == 'z');
 
+  // in reverse order
+  a = 'z';
+  b = 'y';
+  c = 'x';
+  threeSort(a, b, c);
+  CHECK(a == 'x');
+  CHECK(b == 'y');
+  CHECK(c == 'z');
 
   // all other possible permutations
-  a = 'x'; b = 'z'; c = 'y';
+  a = 'x';
+  b = 'z';
+  c = 'y';
   threeSort(a, b, c);
   CHECK(a == 'x');
   CHECK(b == 'y');
   CHECK(c == 'z');
 
-  a = 'y'; b = 'z'; c = 'x';
+  a = 'y';
+  b = 'z';
+  c = 'x';
   threeSort(a, b, c);
   CHECK(a == 'x');
   CHECK(b == 'y');
   CHECK(c == 'z');
 
-  a = 'y'; b = 'x'; c = 'z';
+  a = 'y';
+  b = 'x';
+  c = 'z';
   threeSort(a, b, c);
   CHECK(a == 'x');
   CHECK(b == 'y');
   CHECK(c == 'z');
 
-  a = 'z'; b = 'x'; c = 'y';
+  a = 'z';
+  b = 'x';
+  c = 'y';
   threeSort(a, b, c);
   CHECK(a == 'x');
   CHECK(b == 'y');
   CHECK(c == 'z');
 }
 #endif
-
 
 /** swap() string test cases
  * Create an overloaded function called swap() to pass
@@ -221,7 +229,6 @@ TEST_CASE("Task 3 <swap()> of string parameters> tests", "[task3]")
 }
 #endif
 
-
 /** threeSort() of string test cases
  * Create a function called threeSort() to pass
  * the following tests as described in the assignment description.
@@ -232,47 +239,57 @@ TEST_CASE("Task3 <threeSort()> of string parameters tests", "[task3]")
   string a, b, c;
 
   // already sorted
-  a = "Alabama"; b = "Connecticut"; c = "Delaware";
-  threeSort(a, b, c);
-  CHECK(a == "Alabama");
-  CHECK(b == "Connecticut");
-  CHECK(c == "Delaware");
-  
-  // in reverse order
-  a = "Delaware"; b = "Connecticut"; c = "Alabama";
+  a = "Alabama";
+  b = "Connecticut";
+  c = "Delaware";
   threeSort(a, b, c);
   CHECK(a == "Alabama");
   CHECK(b == "Connecticut");
   CHECK(c == "Delaware");
 
+  // in reverse order
+  a = "Delaware";
+  b = "Connecticut";
+  c = "Alabama";
+  threeSort(a, b, c);
+  CHECK(a == "Alabama");
+  CHECK(b == "Connecticut");
+  CHECK(c == "Delaware");
 
   // all other possible permutations
-  a = "Alabama"; b = "Delaware"; c = "Connecticut";
+  a = "Alabama";
+  b = "Delaware";
+  c = "Connecticut";
   threeSort(a, b, c);
   CHECK(a == "Alabama");
   CHECK(b == "Connecticut");
   CHECK(c == "Delaware");
 
-  a = "Connecticut"; b = "Delaware"; c = "Alabama";
+  a = "Connecticut";
+  b = "Delaware";
+  c = "Alabama";
   threeSort(a, b, c);
   CHECK(a == "Alabama");
   CHECK(b == "Connecticut");
   CHECK(c == "Delaware");
 
-  a = "Connecticut"; b = "Alabama"; c = "Delaware";
+  a = "Connecticut";
+  b = "Alabama";
+  c = "Delaware";
   threeSort(a, b, c);
   CHECK(a == "Alabama");
   CHECK(b == "Connecticut");
   CHECK(c == "Delaware");
 
-  a = "Delaware"; b = "Alabama"; c = "Connecticut";
+  a = "Delaware";
+  b = "Alabama";
+  c = "Connecticut";
   threeSort(a, b, c);
   CHECK(a == "Alabama");
   CHECK(b == "Connecticut");
   CHECK(c == "Delaware");
 }
 #endif
-
 
 /** swap() test cases
  * Create a function called swap() to pass
@@ -322,7 +339,6 @@ TEST_CASE("Predefined <swap()> of int parameters> tests", "[predefined]")
 }
 #endif
 
-
 /** threeSort() test cases
  * Create a function called threeSort() to pass
  * the following tests as described in the assignment description.
@@ -333,40 +349,51 @@ TEST_CASE("Predefined <threeSort()> of int parameters  tests", "[predefined]")
   int a, b, c;
 
   // already sorted
-  a = 1; b = 2; c = 3;
-  threeSort(a, b, c);
-  CHECK(a == 1);
-  CHECK(b == 2);
-  CHECK(c == 3);
-  
-  // in reverse order
-  a = 3; b = 2; c = 1;
+  a = 1;
+  b = 2;
+  c = 3;
   threeSort(a, b, c);
   CHECK(a == 1);
   CHECK(b == 2);
   CHECK(c == 3);
 
+  // in reverse order
+  a = 3;
+  b = 2;
+  c = 1;
+  threeSort(a, b, c);
+  CHECK(a == 1);
+  CHECK(b == 2);
+  CHECK(c == 3);
 
   // all other possible permutations
-  a = 1; b = 3; c = 2;
+  a = 1;
+  b = 3;
+  c = 2;
   threeSort(a, b, c);
   CHECK(a == 1);
   CHECK(b == 2);
   CHECK(c == 3);
 
-  a = 2; b = 3; c = 1;
+  a = 2;
+  b = 3;
+  c = 1;
   threeSort(a, b, c);
   CHECK(a == 1);
   CHECK(b == 2);
   CHECK(c == 3);
 
-  a = 2; b = 1; c = 3;
+  a = 2;
+  b = 1;
+  c = 3;
   threeSort(a, b, c);
   CHECK(a == 1);
   CHECK(b == 2);
   CHECK(c == 3);
 
-  a = 3; b = 1; c = 2;
+  a = 3;
+  b = 1;
+  c = 2;
   threeSort(a, b, c);
   CHECK(a == 1);
   CHECK(b == 2);
