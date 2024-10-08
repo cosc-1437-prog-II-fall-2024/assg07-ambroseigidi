@@ -201,3 +201,13 @@ void threeSort(char& a, char& b, char& c)
     swap(a, b);
   }
 }
+
+void threeSort(std::string& a, std::string& b, std::string& c)
+{
+  if (a > b)
+    swap(a, b);
+  if (a > c)
+    swap(a, c);
+  if (b > c)
+    swap(b, c);
+}
